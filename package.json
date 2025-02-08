@@ -1,4 +1,7 @@
 {
+  "name": "tricycle-hailing-socket",
+  "version": "1.0.0",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.21.2",
     "socket.io": "^4.8.1"
@@ -6,6 +9,6 @@
   "scripts": {
     "dev": "node --env-file .env server.js",
     "start": "node server.js",
-    "build": "echo 'No build step required'"
+    "build": "npm install"
   }
 }
