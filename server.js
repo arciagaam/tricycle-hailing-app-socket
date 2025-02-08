@@ -16,7 +16,12 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
 
-    console.log('CONNECTED', socket.id)
+    // console.log('CONNECTED', socket.id)
+
+    socket.on('reconnect', (booking) => {
+        socket.join(booking.id);
+        io.emit('user_reconnected')
+    })
 
     socket.on('new_booking', (booking) => {
         socket.join(booking.id)
@@ -37,6 +42,7 @@ io.on("connection", (socket) => {
     })
 
 });
+
 
 server.listen(port, () => {
     console.log(`> Ready on ${hostname}:${port}`);
