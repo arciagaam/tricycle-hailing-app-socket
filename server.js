@@ -39,5 +39,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(port, () => {
-    console.log(`> Ready on http://${hostname}:${port}`);
+    console.log(`> Ready on ${hostname}:${port}`);
 });
