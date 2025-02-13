@@ -16,11 +16,13 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
 
-    // console.log('CONNECTED', socket.id)
-
     socket.on('reconnect', (booking) => {
         socket.join(booking.id);
         io.emit('user_reconnected')
+    })
+
+    socket.on('cancel_booking', (booking) => {
+        io.emit('booking_cancelled', booking)
     })
 
     socket.on('new_booking', (booking) => {
